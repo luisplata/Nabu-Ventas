@@ -1,0 +1,46 @@
+/*notas de desarrollo*/
+*Problema con la creacion de nueva empresa, ya que se crea la sede con la misma id que
+la empresa, lo cual no debe ser asi. URGENTE!
+
+*cuando se crea un producto en una sede, y se crea otra sede y no esta se duplica
+en la que estaba al inicio-
+correcion: 
+-crear un boton de crear producto en esta sede
+-modificar la base de datos para que el producto tenga las llaves foraneas necesarias
+    para que no inserte duplicadas
+- verificar cuando se crean los productos si el producto ya existe en la base de datos
+    y si existe no insertarlo
+    sino insertarlo
+
+- testear el movimiento de los productos! IMPORTANTE -> testeado
+- en el servidor sucede lo siguiente: -> solucionado -> es normal ya que solo hay que colcoarlo en el index.php tester o produccion
+    hay un error de una variable antigua
+
+- probar la parte de loc clientes y el credito 
+- corregir el dato del cliente, ya que no sale -> solucionado
+    verificar que este buscando, que este guardando, y que este mandando la variable
+
+/* Solucionado
+- la variable de session de No, producto, hay que quitarla, ya que no sirve para nada
+    porque cuando hay mas de un usuario facturando, se cruzan los numeros.
+    Solucion: sacar de la base de datos el numero, para el ingreso de la factura, y sumarle 1 para el consecutivo
+    al guardar la factura, actualizar el dato al actual.
+    algoritmo:
+        - al crear el array de la factura, sacar el valor de la base de datos.
+        - sele suma 1 y se ingresa
+        - se actualiza el dato de la base de datos
+        - y se actualiza el dato de session, ya que es la que va en la factura.
+        */
+- El reporte es por sede! y colocar un boton de regreso
+/*Notas de desarrollo*/
+
+/*Pidideron*/
+Reporte de las utilidades del dia -> listo
+opciones:
+    -discriminaciones de las ventas
+    -cuantos productos quedan en stock
+
+error en el movimiento de productos importante!
+    
+/*pidieron*/
+
