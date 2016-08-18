@@ -16,104 +16,104 @@
     </head>
     <body>
         <div class="">
-            <!--            <div class="container" style="margin-left: 1px;">
-                            <div class="col-md-3">
-                                <h3>
-                                    Factura No <?= $facturaNumero ?> <br/> 
-                                </h3>
-                                <img src="<?= base_url() . $this->session->userdata("logo_url") ?>" class="img-responsive img-circle"/>
-                                <h5>
-                                    <small>
-                                        Empresa: <?= $this->session->userdata("empresa_nombre") ?><br/>
-                                        Direccion: <?= $this->session->userdata("empresa_direccion") ?><br/>
-                                        Telefono: <?= $this->session->userdata("empresa_telefono") ?><br/>
-                                    </small>
-                                </h5>
-                            </div>
-                        </div>
-            
-                        <div class="container" style="margin-left: 1px;">
-                            <div class="col-md-3">
-                                <table class="table table-condensed">
-                                    <tr><?php $totalDeTodo = 0; //el que tiene el total de todo                                                        ?>
-                                        <th>
-                                            ID
-                                        </th>
-                                        <th>
-                                            Nombre
-                                        </th>
-                                        <th>
-                                            Precio
-                                        </th>
-                                        <th>
-                                            Total
-                                        </th>
-                                    </tr>
-            <?php
-            foreach ($productos as $value) {
-                $totalDeTodo += $value['precio'];
-                ?> 
-                                                                                                                                                                                <tr>
-                                                                                                                                                                                    <td>
-                <?= $value["id"] ?>
-                                                                                                                                                                                    </td>
-                                                                                                                                                                                    <td>
-                <?= $value["nombre"] ?>
-                                                                                                                                                                                    </td>
-                                                                                                                                                                                    <td>
-                <?= $value["precio"] ?>
-                                                                                                                                                                                    </td>
-                                                                                                                                                                                    <td>
-                <?= $value["precio"] ?>
-                                                                                                                                                                                    </td>
-                                                                                                                                                                                </tr>
-                <?php
-            }
-            ?>
-            
-                                    <tr>
-            
-                                        <td colspan="3">
-                                            Recivido:
-                                        </td>
-                                        <td colspan="2" id="recivido">
-            
-                                        </td>
-            
-                                    </tr>
-            
-                                    <tr>
-                                        <td colspan="3">
-                                            Total: 
-                                        </td>
-                                        <td id="total" colspan="2">
-            <?php echo $totalDeTodo ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3">
-                                            Vuelto:
-                                        </td>
-                                        <td colspan="2" id="vuelto">
-            
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div class="col-md-3 text-justify">
-                                <h5>
-                                    Datos del cliente<br/>
-                                    <small>
-                                        Nombre: <?= $cliente['nombre'] ?><br/>
-                                        Documento: <?= $cliente['documento'] ?>
-                                    </small>
-            
-                                </h5>
-                            </div>
-                        </div>-->
-            <div class="container-fluid">
+            <div class="container" style="margin-left: 1px;">
+                <div class="col-md-3">
+                    <h3>
+                        Factura No <?= $facturaNumero ?> <br/> 
+                    </h3>
+                    <img src="<?= base_url() . $this->session->userdata("logo_url") ?>" class="img-responsive img-circle"/>
+                    <h5>
+                        <small>
+                            Empresa: <?= $this->session->userdata("empresa_nombre") ?><br/>
+                            Direccion: <?= $this->session->userdata("empresa_direccion") ?><br/>
+                            Telefono: <?= $this->session->userdata("empresa_telefono") ?><br/>
+                        </small>
+                    </h5>
+                </div>
+            </div>
+
+            <div class="container" style="margin-left: 1px;">
+                <div class="col-md-3">
+                    <table class="table table-condensed">
+                        <tr><?php $totalDeTodo = 0; //el que tiene el total de todo                                                             ?>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Nombre
+                            </th>
+                            <th>
+                                Precio
+                            </th>
+                            <th>
+                                Total
+                            </th>
+                        </tr>
+                        <?php
+                        foreach ($productos as $value) {
+                            $totalDeTodo += $value['precio'];
+                            ?> 
+                            <tr>
+                                <td>
+                                    <?= $value["id"] ?>
+                                </td>
+                                <td>
+                                    <?= $value["nombre"] ?>
+                                </td>
+                                <td>
+                                    <?= $value["precio"] ?>
+                                </td>
+                                <td>
+                                    <?= $value["precio"] ?>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+
+                        <tr>
+
+                            <td colspan="3">
+                                Recivido:
+                            </td>
+                            <td colspan="2" id="recivido">
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td colspan="3">
+                                Total: 
+                            </td>
+                            <td id="total" colspan="2">
+                                <?php echo $totalDeTodo ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Vuelto:
+                            </td>
+                            <td colspan="2" id="vuelto">
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="container">
+                <div class="col-md-3 text-justify">
+                    <h5>
+                        Datos del cliente<br/>
+                        <small>
+                            Nombre: <?= $cliente['nombre'] ?><br/>
+                            Documento: <?= $cliente['documento'] ?>
+                        </small>
+
+                    </h5>
+                </div>
+            </div>
+            <div class="container-fluid hide">
                 <div class="row">
                     <div class="col-xs-12 text-center">
                         <center>
@@ -236,28 +236,30 @@
         <script>
             //para imprimir
             $(document).ready(function () {
-                //alert(window.location.hostname);
-                var credito =<?= $credito ?>;
+                console.log("paso por aqui");
+                var credito = <?= $credito ?>;
                 if (credito) {
                     $("#vuelto").text("0");
                 } else {
-                    //var recivido = prompt("Recivio: ");
+                    var recivido = prompt("Recivio: ");
                     $("#recivido").text(recivido);
-                    //var total = $("#total").text();
+                    var total = $("#total").text();
                     var vuelto = recivido - total;
                     $("#vuelto").text(vuelto);
-                    //alert("Vuelto: " + vuelto);
+                    alert("Vuelto: " + vuelto);
                     if (vuelto < 0) {
                         alert("Estas reciviendo menos de lo que es");
                     }
                 }
 
-                //window.print();
+                if (window.print()) {
+                    alert("imprimio");
+                }
                 //servidor
                 //$(location).attr('href', "http://" + window.location.hostname + "/facturacion/nuevaFactura");
                 //local
-//                $(location).attr('href', "http://" + window.location.hostname + ":8080/Nabu-Facturadora"
-//                        + "/facturacion/nuevaFactura");
+                //$(location).attr('href', "http://" + window.location.hostname + "/ventas"
+                //+ "/facturacion/nuevaFactura");
             });
         </script>
 

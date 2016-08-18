@@ -54,9 +54,9 @@ and open the template in the editor.
                 //metodo para hacer la cuenta var pathname = window.location.pathname;
                 //alert(window.location.pathname);
                 // servidor nuevo controlador
-                if (window.location.pathname === "/facturacion/nuevaFactura") {
+                //if (window.location.pathname === "/facturacion/nuevaFactura") {
                     //local
-                    //if (window.location.pathname === "/ventas/facturacion/nuevaFactura") {
+                    if (window.location.pathname === "/ventas/facturacion/nuevaFactura") {
                     $("#totalDeTodo").val(0);
 
                     //haciendo el ajax desde aqui        

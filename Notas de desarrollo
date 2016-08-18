@@ -29,3 +29,19 @@ generar factura de plan separe.
 2- exportacion de datos de clientes: excel, | 2 semana
 3- telefono correo al cliente debito        | 1 dia
 
+
+############################################
+FALTANTE PARA TERMINAR LA VERSION ACTUAL
+############################################
+Usuarios->modificar
+Clientes->CodigoDeBarra
+Productos->Modufucar
+Producto->CodugoDeBarra
+Categorias->Modificar
+Categorias->Eliminar
+Empresas->Modificar
+Movimientos->NuevoMovimiento(no existe el producto en la otra sede, crearlo cuando no exista)
+Factura->Modificar(Permitir esto?)
+Factura->Eliminar(Permitir esto? o solo mostrar las de este mes?) Crear un buscarodr integral
+Egresos->NUevoEgreso(Required en la categoria)
+ReporteDeCaja->Generar(Quitar Ingresos Especiales)

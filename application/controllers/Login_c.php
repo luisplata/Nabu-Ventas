@@ -33,7 +33,7 @@ class Login_c extends CI_Controller {
     }
 
     public function cerrarsession() {
-        $this->configuracion_model->log("Cerro session " . $this->session->userdata("usuario_id"));
+        //$this->configuracion_model->log("Cerro session " . $this->session->userdata("usuario_id"));
         $this->session->sess_destroy();
         redirect("index.php/");
     }

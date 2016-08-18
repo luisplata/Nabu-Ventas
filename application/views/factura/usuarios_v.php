@@ -37,8 +37,8 @@
                     <td>
                         <?= $value->empresa ?>
                     </td>
-                    <td>
-                        <?= anchor("usuarios/modificar/" . $value->usuario_id, "Modificar", "class='btn btn-info'") ?>
+                    <td>                        
+                        <button class="btn btn-info ModalModificarUsuario">Modificar</button>
                         <?= anchor("usuarios/eliminar/" . $value->usuario_id, "Eliminar", "class='btn btn-warning'") ?>
                     </td>
                 </tr>
@@ -46,3 +46,8 @@
         </tbody>
     </table>
 </div>
+<script type="text/javascript">
+    $(document).on("click", ".ModalModificarUsuario", function () {
+        
+    });
+</script>

@@ -160,7 +160,7 @@ class Facturacion extends CI_Controller {
                 redirect("facturacion/nuevaFactura");
             }
         } else {
-            $this->configuracion_model->log("No se genero la factura Paso algo!", "error");
+            $this->configuracion_model->log("No se genero la factura, Paso algo!", "error");
             redirect("inicios/inicio");
         }
     }

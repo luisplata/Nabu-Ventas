@@ -121,5 +121,10 @@ class Usuarios extends CI_Controller {
             redirect("no cambio la contraseña");
         }
     }
+    
+    public function Modificar() {
+        //obtenemos el usuario y lo mandamos al modelo para hacer la actualización
+        
+    }
 
 }
