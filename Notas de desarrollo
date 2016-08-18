@@ -1,0 +1,31 @@
+Desarrollo:
+Se realizara los siguientes cambios en la forma en la que se accede al servicio.
+Se creara un Web Service para que los clientes. externos al servidor puedan acceder a los servicios del mismo.
+Se realizara este cambio, para hacer experimento en el webserviceque se hara de la mano de codeigniter.
+y asi poder tener pruebas de que si se puede y como se hace estas cosas para los desarrollos proximos.
+Aquí en el servidor vamos a programar lo siguiente:
+- Web Service:
+    - Cliente vendedor.
+        El que vende en la empresa, este se tendra que logear para poder usar el servicio
+        cuando se logee, se cargaran todos los datos que se necesiten para operar.
+    - Cliente administrador.
+        - Sera un dashboar con graficas de lo que esta pasando en els ervidor.
+        - y un administrativo de los recursos que tendra el software
+
+Cuando tengamos esto echo, vamos a realizar pruebas con android y escritorio.
+apuntado para despues
+-android
+-escritorio
+
+Crear un sistema de exepciones de sql
+//juanda
+Colocar telefono y correo, no obligarios en la facturacion efectivo
+cuanto a pagado el cliente, durante los ultimos 12 meses
+generar factura de plan separe.
+--corte: es cuando comienza a pagar un credito, hasta cuando termine de pagar.
+//pila de importancia
+0- Gestor de notas                          | 2 semanas
+1- diseño de la factura                     | 1 dia
+2- exportacion de datos de clientes: excel, | 2 semana
+3- telefono correo al cliente debito        | 1 dia
+

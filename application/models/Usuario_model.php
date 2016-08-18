@@ -298,5 +298,7 @@ class Usuario_model extends CI_Model {
             return FALSE;
         }
     }
-
+    public function login($user,$pass){
+        return $this->db->query("call login('$user','$pass')")->result();
+    }
 }
