@@ -13,6 +13,11 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        <style>
+            .logoFactura{
+                width: 100px;
+            }
+        </style>
     </head>
     <body>
         <div class="imprimir">
@@ -21,8 +26,8 @@
                     <h3>
                         Factura No <?= $facturaNumero ?> <br/> 
                     </h3>
-                    <img src="<?= base_url().$this->session->userdata("logo_url") ?>" class="img-responsive img-circle"/>
-                         <h5>
+                    <img src="<?= base_url() . $this->session->userdata("logo_url") ?>" class="img-responsive center-block text-center img-circle logoFactura"/>
+                    <h5>
                         <small>
                             Empresa: <?= $this->session->userdata("empresa_nombre") ?><br/>
                             Direccion: <?= $this->session->userdata("empresa_direccion") ?><br/>
@@ -35,7 +40,7 @@
             <div class="container" style="margin-left: 1px;">
                 <div class="col-md-3">
                     <table class="table table-condensed">
-                        <tr><?php $totalDeTodo = 0; //el que tiene el total de todo                     ?>
+                        <tr><?php $totalDeTodo = 0; //el que tiene el total de todo                       ?>
                             <th>
                                 ID
                             </th>
@@ -142,12 +147,12 @@
                     }
                 }
 
-                //window.print();
+                window.print();
                 //servidor
-                //$(location).attr('href', "http://" + window.location.hostname + "/facturacion/nuevaFactura");
+                $(location).attr('href', "http://" + window.location.hostname + "/facturacion/nuevaFactura");
                 //local
-//                $(location).attr('href', "http://" + window.location.hostname + ":8080/Nabu-Facturadora"
-//                        + "/facturacion/nuevaFactura");
+                //$(location).attr('href', "http://" + window.location.hostname + ":8080/Nabu-Facturadora"
+                //+ "/facturacion/nuevaFactura");
             });
         </script>
 

@@ -45,3 +45,4 @@ Factura->Modificar(Permitir esto?)
 Factura->Eliminar(Permitir esto? o solo mostrar las de este mes?) Crear un buscarodr integral
 Egresos->NUevoEgreso(Required en la categoria)
 ReporteDeCaja->Generar(Quitar Ingresos Especiales)
+Facturadora->facturadoraa(Cuando envio nada, errror)

@@ -10,7 +10,7 @@ class Facturacion extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-//        $this->output->enable_profiler(TRUE);
+        //$this->output->enable_profiler(TRUE);
         $this->load->model("factura_model", "factura");
     }
 
@@ -155,7 +155,7 @@ class Facturacion extends CI_Controller {
 
 
             if ($this->configuracion_model->imprimir() == 1) {
-                $this->load->view("plantilla_2", $datos);
+                $this->load->view("plantilla_1", $datos);
             } else {
                 redirect("facturacion/nuevaFactura");
             }

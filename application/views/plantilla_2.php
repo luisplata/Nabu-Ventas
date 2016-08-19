@@ -258,8 +258,8 @@
                 //servidor
                 //$(location).attr('href', "http://" + window.location.hostname + "/facturacion/nuevaFactura");
                 //local
-                //$(location).attr('href', "http://" + window.location.hostname + "/ventas"
-                //+ "/facturacion/nuevaFactura");
+                $(location).attr('href', "http://" + window.location.hostname + "/ventas"
+                + "/facturacion/nuevaFactura");
             });
         </script>
 
