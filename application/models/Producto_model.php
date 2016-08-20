@@ -105,7 +105,7 @@ class Producto_model extends CI_Model {
         }
     }
 
-    public function obtenerUno($id) {
+    public function ObtenerUno($id) {
         $where = array(
             "id" => $id,
             "eliminado" => "0",
@@ -153,6 +153,16 @@ class Producto_model extends CI_Model {
                 substr($an, rand(0, $su), 1) .
                 substr($an, rand(0, $su), 1) .
                 substr($an, rand(0, $su), 1);
+    }
+
+    public function Modificar($producto, $id) {
+        $this->db->set($producto);
+        $this->db->where("id", $id);
+        if ($this->db->update("producto")) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
     }
 
 }

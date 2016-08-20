@@ -13,7 +13,8 @@ class productos extends CI_Controller {
         $datos = array(
             "izq" => "izq",
             "der" => "productos_v",
-            "productos" => $this->producto->listarTodo()
+            "productos" => $this->producto->listarTodo(),
+            "categorias" => $this->categoria->listarTodo()
         );
         $this->load->view("factura", $datos);
     }
@@ -92,6 +93,27 @@ class productos extends CI_Controller {
         } else {
             $this->configuracion_model->log("No se elimino el producto " . $id, "error");
             redirect("productos/inicio/NoSeElimino");
+        }
+    }
+
+    public function GetOneProduct($id) {
+        echo json_encode($this->producto->ObtenerUno($id)[0]);
+    }
+
+    public function Modificar() {
+        $producto = array(
+            "nombre" => $this->input->post("nombre"),
+            "descripcion" => $this->input->post("descripcion"),
+            "precio" => $this->input->post("precio"),
+            "costo" => $this->input->post("costo"),
+            "cantidad" => $this->input->post("cantidad"),
+            "categoria_id" => $this->input->post("categoria_id"),
+            "codigo" => $this->input->post("codigo")
+        );
+        if ($this->producto->Modificar($producto, $this->input->post("id"))) {
+            redirect("productos/Inicio/?mensaje=Se modificó con Exito&tipo=success");
+        } else {
+            redirect("productos/Inicio/?mensaje=No se modificó con Exito&tipo=error");
         }
     }
 

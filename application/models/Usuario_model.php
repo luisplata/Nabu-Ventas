@@ -26,9 +26,9 @@ class Usuario_model extends CI_Model {
         $this->db->join("persona", "persona.id = usuario.persona_id");
         $this->db->join("sede", "sede.id = usuario.sede_id");
         $usuarios = $this->db->get("usuario")->result();
-        
+
         if ($usuarios) {
-            
+
             foreach ($usuarios as $value) {
                 $this->session->set_userdata("usuario_id", $value->usuario_id);
                 $this->session->set_userdata("empresa_id", $value->empresa_id);
@@ -39,7 +39,7 @@ class Usuario_model extends CI_Model {
                 $this->session->set_userdata("grado", $value->grado);
                 $this->session->set_userdata("valor", $value->valor);
             }
-            $this->configuracion_model->logInterno("existe y si son los datos correctos del login ".$usuario['usuario.user']);
+            $this->configuracion_model->logInterno("existe y si son los datos correctos del login " . $usuario['usuario.user']);
             //sacando los datos de configuracion
             $configuracion["configuracion.eliminado"] = "0";
             $configuracion["empresa.activo"] = "1";
@@ -56,7 +56,7 @@ class Usuario_model extends CI_Model {
             $this->db->join("empresa", "empresa.id = configuracion.empresa_id");
             $configuraciones = $this->db->get("configuracion")->result();
             if ($configuraciones) {
-                $this->configuracion_model->logInterno("Se cargaron los datos de confguracion de la empresa ".$configuracion['empresa.id']);
+                $this->configuracion_model->logInterno("Se cargaron los datos de confguracion de la empresa " . $configuracion['empresa.id']);
                 foreach ($configuraciones as $datos) {
                     //$this->session->set_userdata("facturaNumero", $datos->facturaNumero);
                     $this->session->set_userdata("imprimir", $datos->imprimir);
@@ -171,12 +171,37 @@ class Usuario_model extends CI_Model {
         }
     }
 
-    public function modificar($id) {
-        /*
-          $this->db->where("id", $id);
-          $this->db->update("usuario", "eliminado = 1");
-          redirect("index.php/usuarios/");
-         */
+    public function modificar($usuario) {
+        //lo que se va a hacer es, crear una transaccion y su todo sale bien hacer commit
+        $usuario = (object) $usuario;
+        $this->db->trans_begin();
+
+        $sql = "UPDATE persona SET "
+                . "nombre = '$usuario->nombre', "
+                . "apellido = '$usuario->apellido', "
+                . "documento = '$usuario->documento', "
+                . "direccion = '$usuario->direccion', "
+                . "email = '$usuario->email', "
+                . "telefono = '$usuario->telefono' "
+                . "where id = $usuario->id";
+
+        $this->db->query($sql);
+        $sql2 = "UPDATE usuario SET "
+                . "grado = '$usuario->grado',"
+                . "valor = '$usuario->valor',"
+                . "user = '$usuario->user' "
+                . "where persona_id = $usuario->id";
+
+        $this->db->query($sql2);
+
+
+        if ($this->db->trans_status() === FALSE) {
+            $this->db->trans_rollback();
+            return FALSE;
+        } else {
+            $this->db->trans_commit();
+            return TRUE;
+        }
     }
 
     public function eliminar($id) {
@@ -298,7 +323,29 @@ class Usuario_model extends CI_Model {
             return FALSE;
         }
     }
-    public function login($user,$pass){
+
+    public function login($user, $pass) {
         return $this->db->query("call login('$user','$pass')")->result();
     }
+
+    public function GetOneUser($id) {
+        $sql = "select "
+                . "p.id,"
+                . "p.nombre,"
+                . "p.apellido,"
+                . "p.documento,"
+                . "p.direccion,"
+                . "p.email,"
+                . "p.email,"
+                . "u.grado,"
+                . "u.valor,"
+                . "u.user,"
+                . "p.telefono "
+                . "from usuario u "
+                . "inner join persona p on p.id = u.persona_id "
+                . "where u.id = ?";
+        $filtro = array($id);
+        return $this->db->query($sql, $filtro)->result();
+    }
+
 }

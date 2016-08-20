@@ -121,10 +121,30 @@ class Usuarios extends CI_Controller {
             redirect("no cambio la contraseña");
         }
     }
-    
+
     public function Modificar() {
         //obtenemos el usuario y lo mandamos al modelo para hacer la actualización
-        
+        $usuario = array(
+            "grado" => $this->input->post("grado"),
+            "valor" => $this->input->post("valor"),
+            "user" => $this->input->post("user"),
+            "nombre" => $this->input->post("nombre"),
+            "apellido" => $this->input->post("apellido"),
+            "documento" => $this->input->post("documento"),
+            "direccion" => $this->input->post("direccion"),
+            "email" => $this->input->post("email"),
+            "telefono" => $this->input->post("telefono"),
+            "id" => $this->input->post("id")
+        );
+        if ($this->usuario->Modificar($usuario)) {
+            redirect("usuarios/inicio/?mensaje=Se Modificó el usuario con exito&tipo=success");
+        } else {
+            redirect("usuarios/inicio/?mensaje=No se Modificó el usuario con exito&tipo=error");
+        }
+    }
+
+    public function GetUsuario($id) {
+        echo json_encode($this->usuario->GetOneUser($id)[0]);
     }
 
 }

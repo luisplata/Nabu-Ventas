@@ -49,4 +49,27 @@ class Categorias extends CI_Controller {
         }
     }
 
+    public function Categoria($id) {
+        echo json_encode($this->categoria->GetCategoria($id)[0]);
+    }
+
+    public function Modificar() {
+        $categoria = array(
+            "nombre" => $this->input->post("nombre"),
+            "descripcion" => $this->input->post("descripcion"),
+            "padre" => $this->input->post("padre")
+        );
+        if ($this->categoria->Modificar($categoria, $this->input->post("id"))) {
+            redirect("categorias/inicio/?mensaje=Se modificó con Exito&tipo=success");
+        } else {
+            redirect("categorias/inicio/?mensaje=No se modificó con Exito&tipo=error");
+        }
+    }
+    public function Eliminar($id) {
+        if($this->categoria->eliminar($id)){
+            redirect("categorias/inicio/?mensaje=Se eliminó con Exito&tipo=success");
+        }else{
+            redirect("categorias/inicio/?mensaje=No se eliminó con Exito&tipo=error");
+        }
+    }
 }

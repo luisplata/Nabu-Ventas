@@ -18,13 +18,6 @@ and open the template in the editor.
         <script src="<?= base_url() ?>js/jquery-2.1.1.min.js" language="Javascript"></script>
         <script src="<?= base_url() ?>js/ajax.js" language="Javascript"></script>
 
-
-        <!-- Librería jQuery requerida por los plugins de JavaScript habilitar cuando haya internet-->
-        <script src="http://code.jquery.com/jquery.js"></script>
-        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-        <!-- Todos los plugins JavaScript de Bootstrap (también puedes
-                     incluir archivos JavaScript individuales de los únicos
-                     plugins que utilices) -->
         <script src="<?= base_url() ?>js/bootstrap.min.js"></script>
         <!--css-->
         <link href="<?= base_url() ?>css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -39,6 +32,35 @@ and open the template in the editor.
         <link rel="stylesheet" href="<?= base_url() ?>css/alertify.min.css" />
         <!-- include a theme -->
         <link rel="stylesheet" href="<?= base_url() ?>css/default.min.css" />
+        <!--Ordenamiento y paginacion de tablas-->
+        <link href="<?= base_url() ?>css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+        <style>
+            table.dataTable thead .sorting,
+            table.dataTable thead .sorting_asc,
+            table.dataTable thead .sorting_desc{
+                background-image: none;
+            }
+        </style>
+        <script src="<?= base_url() ?>js/jquery.dataTables.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+//            $(document).ready(function () {
+//                $(".table").DataTable({
+//                    "ordering": true,
+//                    language: {
+//                        "emptyTable": "No hay datos para mostrar",
+//                        "info": "del _START_ al _END_ de _TOTAL_ datos",
+//                        "search": "Buscar:",
+//                        "lengthMenu": "Mostar _MENU_ Entradas",
+//                        "infoFiltered": "(filtrado de _MAX_ datos)",
+//                        paginate: {
+//                            previous: '‹',
+//                            next: '›'
+//                        }
+//                    }
+//                });
+//            });
+        </script>
+        <!--Ordenamiento y paginacion de tablas-->
         <!--
         Sacando las alertas
         -->
@@ -55,8 +77,8 @@ and open the template in the editor.
                 //alert(window.location.pathname);
                 // servidor nuevo controlador
                 //if (window.location.pathname === "/facturacion/nuevaFactura") {
-                    //local
-                  if (window.location.pathname === "/ventas/facturacion/nuevaFactura") {
+                //local
+                if (window.location.pathname === "/ventas/facturacion/nuevaFactura") {
                     $("#totalDeTodo").val(0);
 
                     //haciendo el ajax desde aqui        
@@ -117,7 +139,7 @@ and open the template in the editor.
             });
             function numeroAleatorio() {
                 var aleatorio = Math.round(Math.random() * 10000);
-                $("#codigo").val(aleatorio);
+                $("input[data-type='codigo']").val(aleatorio);
             }
 
         </script>
