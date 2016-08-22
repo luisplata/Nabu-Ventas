@@ -40,7 +40,7 @@ class Producto_model extends CI_Model {
         return $productos;
     }
 
-    public function guardar($producto) {
+    public function Guardar($producto, $proveedor_id) {
         /* Se tiene que crea el producto en todas las sede de la empresa
          * se hara de la siguiente forma:
          * -se listaran las sedes de la empresa actual
@@ -64,8 +64,18 @@ class Producto_model extends CI_Model {
 //            } else {
 //                
 //            }
-
-
+            //Sacamsoa la id e insertamos en la relacion
+            $relacion = array(
+                "Proveedor_id" => $proveedor_id,
+                "producto_id" => $this->db->insert_id(),
+                "producto_empresa_id" => $producto["empresa_id"],
+                "producto_sede_id" => $producto["sede_id"]
+            );
+            if ($this->db->insert("Proveedor_y_producto", $relacion)) {
+                return TRUE;
+            } else {
+                return FALSE;
+            }
             return TRUE;
         } else {
             return FALSE;

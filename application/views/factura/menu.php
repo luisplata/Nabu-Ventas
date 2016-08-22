@@ -225,6 +225,8 @@ switch ($this->session->userdata("grado")) {
                             <li><?= anchor("categorias/inicio", "Categorias") ?></li>
                             <li class="divider"></li>
                             <li><?= anchor("movimientos/inicio", "Movimientos") ?></li>
+                            <li class="divider"></li>
+                            <li><?= anchor("proveedor", "Proveedores") ?></li>
                         </ul>
                     </li>
                     <li class="dropdown
@@ -315,7 +317,10 @@ switch ($this->session->userdata("grado")) {
                     </li>
                     <li class="dropdown
                     <?=
-                    (strstr(uri_string(), '/', true) == "productos" ||
+                    (
+                    strstr(uri_string(), '/', true) == "productos" ||
+                    uri_string() == "proveedor" ||
+                    strstr(uri_string(), '/', true) == "movimientos" ||
                     strstr(uri_string(), '/', true) == "categorias" ) ? "active" : ""
                     ?>    
                         ">
@@ -328,6 +333,8 @@ switch ($this->session->userdata("grado")) {
                             <li><?= anchor("categorias/inicio", "Categorias") ?></li>
                             <li class="divider"></li>
                             <li><?= anchor("movimientos/inicio", "Movimientos") ?></li>
+                            <li class="divider"></li>
+                            <li><?= anchor("proveedor", "Proveedores") ?></li>
                         </ul>
                     </li>
                     <li class="dropdown

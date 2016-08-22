@@ -32,6 +32,21 @@
     </div>
     <div class="form-group">
         <label>
+            Proveedor
+        </label>
+        <select name="proveedor_id" class="form-control" required="">            
+            <?php foreach ($proveedores as $value) {
+                ?>
+                <option value="<?= $value->id ?>">
+                    <?= $value->nombre ?>
+                </option>
+                <?php
+            }
+            ?>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>
             Categoria
         </label>
         <select name="categoria_id" class="form-control" required="">
@@ -49,7 +64,7 @@
         <label>
             Codigo
         </label>
-        <input type="text" name="codigo" required="" id="codigo" class="form-control"/>
+        <input type="text" name="codigo" required="" id="codigo" class="form-control createCode"/>
         <input type="button" value="Generar Codigo" onclick="numeroAleatorio()" />
     </div>
     <div class="form-group">

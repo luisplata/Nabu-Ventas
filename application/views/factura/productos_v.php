@@ -58,10 +58,11 @@
                         <?php } ?>
                         <?= anchor("productos/codigoDeBarra/" . $value->producto_id, "Codigo", "title='Imprimir Codigo de Barras' class='btn btn-default'") ?>
                     </td>
-                </tr>
+                </tr>               
             <?php } ?>
+        </tbody>
     </table>
-</tbody>
+
 </div>
 <div class="modal fade" id="ModificarProducto" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

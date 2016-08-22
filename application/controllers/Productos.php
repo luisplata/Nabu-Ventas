@@ -7,14 +7,15 @@ class productos extends CI_Controller {
 //        $this->output->enable_profiler(TRUE);
         $this->load->model("producto_model", "producto");
         $this->load->model("categoria_model", "categoria");
+        $this->load->model("Proveedor_model", "proveedor");
     }
 
     public function inicio() {
         $datos = array(
             "izq" => "izq",
             "der" => "productos_v",
-            "productos" => $this->producto->listarTodo(),
-            "categorias" => $this->categoria->listarTodo()
+            "productos" => $this->producto->ListarTodo(),
+            "categorias" => $this->categoria->ListarTodo()
         );
         $this->load->view("factura", $datos);
     }
@@ -23,7 +24,8 @@ class productos extends CI_Controller {
         $datos = array(
             "izq" => "izq",
             "der" => "nuevoProducto",
-            "categorias" => $this->categoria->listarTodo()
+            "categorias" => $this->categoria->ListarTodo(),
+            "proveedores" => $this->proveedor->ListarTodo()
         );
         $this->load->view("factura", $datos);
     }
@@ -40,7 +42,8 @@ class productos extends CI_Controller {
             "empresa_id" => $this->session->userdata("empresa_id"),
             "sede_id" => $this->session->userdata("sede_id")
         );
-        if ($this->producto->guardar($producto)) {
+        if ($this->producto->Guardar($producto, $this->input->post("proveedor_id"))) {
+
             $this->configuracion_model->log("Se guardo el producto " . $producto['nombre']);
             redirect("productos/inicio");
         } else {
