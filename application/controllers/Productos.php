@@ -31,6 +31,8 @@ class productos extends CI_Controller {
     }
 
     public function registrarNuevoproducto() {
+        print_r($this->input->post());
+
         $producto = array(
             "nombre" => $this->input->post("nombre"),
             "codigo" => $this->input->post("codigo"),

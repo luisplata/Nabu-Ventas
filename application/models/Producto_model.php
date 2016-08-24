@@ -10,7 +10,7 @@ class Producto_model extends CI_Model {
 
     function __construct() {
         parent::__construct();
-        //$this->output->enable_profiler(TRUE);
+//$this->output->enable_profiler(TRUE);
     }
 
     public function listarTodo() {
@@ -49,41 +49,33 @@ class Producto_model extends CI_Model {
          */
         $this->load->model("sede_model", "sede");
 
-        $sedes = $this->sede->listarTodo();
-
-
         if ($this->db->insert("producto", $producto)) {
-//            if ($this->configuracion_model->duplicado() == 1) {
-//                foreach ($sedes as $value) {
-//                    if ($value->id != $this->session->userdata("sede_id")) {
-//                        $producto['sede_id'] = $value->id;
-//                        $producto['cantidad'] = "0";
-//                        $this->db->insert("producto", $producto);
-//                    }
-//                }
-//            } else {
-//                
-//            }
             //Sacamsoa la id e insertamos en la relacion
-            $relacion = array(
-                "Proveedor_id" => $proveedor_id,
-                "producto_id" => $this->db->insert_id(),
-                "producto_empresa_id" => $producto["empresa_id"],
-                "producto_sede_id" => $producto["sede_id"]
-            );
-            if ($this->db->insert("Proveedor_y_producto", $relacion)) {
+            $producto_id = $this->db->insert_id();
+            $relaciones = TRUE;
+            foreach ($proveedor_id as $value) {
+                $relacion = array(
+                    "Proveedor_id" => $value,
+                    "producto_id" => $producto_id,
+                    "producto_empresa_id" => $producto["empresa_id"],
+                    "producto_sede_id" => $producto["sede_id"]
+                );
+                if (!$this->db->insert("Proveedor_y_producto", $relacion)) {
+                    $relaciones = FALSE;
+                }
+            }
+            if ($relaciones) {
                 return TRUE;
             } else {
                 return FALSE;
             }
-            return TRUE;
         } else {
             return FALSE;
         }
     }
 
     public function productoStock() {
-        //agregar nuevo campo a configuracion: NumMinProducto
+//agregar nuevo campo a configuracion: NumMinProducto
         $where = array(
             "cantidad <" => "10",
             "eliminado" => "0",
@@ -97,7 +89,7 @@ class Producto_model extends CI_Model {
     }
 
     public function agregarMas($codigo, $cantidad) {
-        //haciendo un query unido para esto
+//haciendo un query unido para esto
         if (empty($cantidad)) {
             $cantidad = 0;
         }
