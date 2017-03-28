@@ -4,14 +4,15 @@ Nabu - Ventas
 Nabu-Ventas nace para ser el software de POS (Punto de Venta)
 Este software echo en PHP con el Framework Codeigniter, Adicionando las bases de datos en DB/ModeloWorkbench.mwb Siendo un archivo de Mysql WorkBench para que se pueda instalar en cualquier servidor.
 Funcionalidades:
-- Gestion de Inventario
-- Gestion de clientes
-- Gestion de Creditos
-- Facturadora online
-- Engresos
-- Ingresos adicionales
-- Devoluciones
-- Proveedores
+
+-   Gestion de Inventario
+-   Gestion de clientes
+-   Gestion de Creditos
+-   Facturadora online
+-   Engresos
+-   Ingresos adicionales
+-   Devoluciones
+-   Proveedores
 
 ###################
 What is CodeIgniter
